@@ -1,51 +1,13 @@
-/**
- * ENGG1110 Problem Solving by Programming
- *
- * Course Project
- *
- * I declare that the project here submitted is original
- * except for source material explicitly acknowledged,
- * and that the same or closely related material has not been
- * previously submitted for another course.
- * I also acknowledge that I am aware of University policy and
- * regulations on honesty in academic work, and of the disciplinary
- * guidelines and procedures applicable to breaches of such
- * policy and regulations, as contained in the website.
- *
- * University Guideline on Academic Honesty:
- *   https://www.cuhk.edu.hk/policy/academichonesty/
- *
- * Student Name  : Nguyen Thi Mai Huyen
- * Student ID    : 1155210003
- * Class/Section : D
- * Date          : 7/12/2023
- */
-
 #include <stdio.h>
-/* NO other header files are allowed */
 
-/* NO global variables are allowed */
-
-
-// Initialize the specified game board.
 void initGameBoard(int gameBoard[][9], int puzzle[][9]) {
 
-    // TODO: Complete this part
-    // Hint: Copies the content of puzzle to gameBoard
     for (int i = 0; i < 9; i++)
         for (int j = 0; j < 9; j++)
             gameBoard[i][j] = puzzle[i][j];
 }
 
-/* Display the specified game board on the screen.
-   You are required to exactly follow the output format stated in the project specification.
-   IMPORTANT: Using other output format will result in mark deduction. */
 void printGameBoard(int gameBoard[][9]) {
-    // TODO: Complete this part
-    // Hint:
-    // 1. First, try to prints the content of gameBoard
-    // 2. Use conditional statement to print ' ' or 'X' for the two cases (empty or selected cell).
-    // 3. Add the borders, col/row numbers
 
     printf("  ");
     for (int i = 0; i < 9; i++)
@@ -74,13 +36,7 @@ void printGameBoard(int gameBoard[][9]) {
     }
 }
 
-/* inputBoard() reads a char '1' to '9', or 'H' from the player.
-    You need to apply input validation, output error message, and go back to cell selection if its input is invalid.
-    gameMode indicates if the game is run in Easy (0) or Hard (1) mode, so that you can determine if hint is allowed.
-    *** The function returns 1 if 'H' is inputted (i.e., the player uses a hint), returns -1 if an invalid input is read, and 0 otherwise (valid input). ***
-    IMPORTANT: Using other output format will result in mark deduction. */
 int inputBoard(int gameBoard[][9], int x, int y, int sol[][9], int gameMode){
-    // TODO: Complete this part
     printf("Input a number [or H: hint]: ");
     char a;
     scanf(" %c", &a);
@@ -142,15 +98,6 @@ int checkFinish(int gameBoard[][9], int sol[][9]){
     return 1;
 }
 
-
-/* ** Hard Mode **
-    Check the (x, y) cell in the game board to see if it conflicts with other numbers in the same row/column/subgrid.
-    You need to output messages to indicate incorrect answer.
-    if (x,y) cell causes conflict in 2 or more categories, all such messages will be printed in order.
-    The function returns 1 if (x, y) causes conflicts, and 0 otherwise.
-    Hint: The return value can be used to update chances in main.
-    IMPORTANT: Using other output format will result in mark deduction. */
-
 int checkSolutionDetail(int gameBoard[][9], int x, int y){
     // TODO: Complete this part
     int ok = 1, found = 0;
@@ -198,52 +145,35 @@ int checkSolutionDetail(int gameBoard[][9], int x, int y){
     It determines if all the numbers in the same row + column + subgrid contain all numbers 1 - 9, i.e., the cell (x, y) cannot be filled (or is locked).
     It returns 0 if cell (x, y) is locked; and returns 1 if the cell (x, y) can be filled */
 int checkFillable(int gameBoard[][9], int x, int y){
-    // TODO: Complete this part
 }
 
 /*
     isLockBoard() determines if the input gameBoard contains a locked cell.
     If there is a locked cell, it prints a locked cell and returns 1.
-    It returns 0 if the game board is free of locked cell
-    Hint: loop through all empty cell and use checkFillable to aid in checking the cell.
-    */
+    It returns 0 if the game board is free of locked cell*/
+
 int isLockBoard(int gameBoard[][9]){
-    // TODO: Complete this part
+  
 }
 
-
-/* ** Part 2: Save and Load** */
-// the savePuzzle function saves the gameBoard and solution to the file "saveGame.txt"
-// You may add parameter to this function, e.g, the file to save.
-// The program returns 1 if it successfully saves the file, and 0 otherwise.
 int savePuzzle(int gameBoard[][9], int sol[][9]){
-    // TODO: Complete this part
+
 }
 
-// the loadPuzzle function loads the gameBoard and solution from the file "saveGame.txt"
-// You may add parameter to this function, e.g, the file to load.
-// The program returns 1 if it successfully loads the file, and 0 otherwise.
 int loadPuzzle(int gameBoard[][9], int sol[][9]){
-    // TODO: Complete this part
 }
 
-// A helper function to craft a text file containing the inputs to fill in the puzzle according to the solution.
-// Call it to generate a text file that prints the inputs leading to a finished puzzle
-// To Debug:
-//  In Powershell, run: Get-Content .\textInput.txt | & .\main.exe
-//  or simply run the program, copy and paste contents of the text file to console.
-// You may modify the function as you wish
 void printSolution(int puzzle[][9],int solution[][9]){
     FILE *fp;
     fp = fopen("textInput.txt", "w");
     if (fp == NULL) {printf("Error in writing file."); return;}
 
-    fprintf(fp,"0\n"); // Change to 1 if runns in Hard mode
+    fprintf(fp,"0\n"); 
     for(int i=0; i<9; i++)
     for (int j=0; j<9; j++){
         if (puzzle[i][j]==0){
             fprintf(fp, "%d %d\n", i, j);
-            fprintf(fp, "%d\n", solution[i][j]); // You may print a character to test Hint/Save-load function.
+            fprintf(fp, "%d\n", solution[i][j]);
         }
     }
     fclose(fp);
@@ -303,7 +233,6 @@ int main()
     // Repeats the input process for an invalid input
     // Set the Game mode and display the message
 
-    // TODO: Read Game Mode and output selected mode
     do
     {
         printf("Enter the game mode [0: Easy. 1: Hard]: ");
@@ -316,10 +245,7 @@ int main()
     else
         printf("You have selected Hard mode.\n");
 
-    // Call initGameBoard to read the puzzle to gameBoard
-    // and call printGameBoard to print it
-    /* Uncomment the following statements to test if they are implemented correctly.
-       You can add more if you wish. But remember to delete them before submission*/
+  
 
     initGameBoard(gameBoard, myPuzzle);
     printGameBoard(gameBoard);
@@ -327,7 +253,7 @@ int main()
     // The following line calls the helper function, which print the user inputs leading to a finished puzzle
     // printSolution(gameBoard, mySolution);
 
-    // TODO: Your Easy/Hard mode Game starts
+
     // The following is the suggested workflow
 
     // While the game is not finished:
