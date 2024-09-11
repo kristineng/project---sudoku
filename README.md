@@ -11,7 +11,8 @@
     unique solution.
 ### Figure 1a and 1b shows a puzzle with 24 clues and its solution:
 <img width="900" alt="image" src="https://github.com/user-attachments/assets/1ed8391b-b781-4b8b-8807-a7308b389ee1">
-## The program will:
+
+## The programme will:
   1. Allow the  player to select Easy or Hard mode.
   2. Read the puzzle & solution from source:
     - The puzzle is assumed to have only a unique solution (you do not need to check they
