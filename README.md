@@ -31,5 +31,4 @@
   6. Help fill a cell in the Easy mode.
   7. Check if the player wins or (in Hard mode) loses.
   ### Program Flow:
-  <img width="900" alt="image" src="https://github.com/user-attachments/assets/ac5cd8b5-88a3- 
-  4d6c-a084-04d11cb8b995">
+  <img width="900" alt="image" src="https://github.com/user-attachments/assets/ac5cd8b5-88a3-4d6c-a084-04d11cb8b995">
